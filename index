@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+
+	<!--INÍCIO CSS-->
+	<link href="/t3-assets/css/css-6709b-72673.css" rel="stylesheet" type="text/css">
+
+	<link href="/t3-assets/css/css-e2501-72576.css" rel="stylesheet" type="text/css">
+
+	<link href="/t3-assets/css/css-506de-78359.css" rel="stylesheet" type="text/css">
+
+	<link href="/t3-assets/css/css-06f41-71013.css" rel="stylesheet" type="text/css">
+
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
+
+	<link href="//fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+	<link href="//fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
+	<!--FIM CSS-->
+
+
+	<!--JQUERY-->
+	<script src="jquery.min.js"></script>
+
+
+	<!--CARREGA GIF-->
+	<script type="text/javascript">
+        $(document).ready(function() {
+            $('#loading').hide();
+            $('#btn').click(
+                function load() {
+
+                    $('#loading').show();
+
+                }
+            );
+        }
+    );
+</script>
+
+<script>
+			$(document).ready(function(){
+
+				//Esconde 'load'
+					$(window).click(function(){
+					$('#loading').fadeOut(2000);
+});
+
+});
+</script>
+
+
+
+
+		<!--FIM CARREGA GIF-->
+			
+
+
+
+               	<!--INÍCIO RESPONSIVO-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<style type="text/stylesheet">
+
+		@-webkit-viewport   { width: device-width; }
+
+		@-moz-viewport      { width: device-width; }
+
+		@-ms-viewport       { width: device-width; }
+
+		@-o-viewport        { width: device-width; }
+
+		@viewport           { width: device-width; }
+
+	</style>
+
+	<script type="text/javascript">
+
+		//<![CDATA[
+
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+
+			var msViewportStyle = document.createElement("style");
+
+			msViewportStyle.appendChild(
+
+				document.createTextNode("@-ms-viewport{width:auto!important}")
+
+			);
+
+			document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+
+		}
+
+		//]]>
+
+	</script>
+
+<meta name="HandheldFriendly" content="true">
+
+<meta name="apple-mobile-web-app-capable" content="YES">
+
+		<!--FIM RESPONSIVO-->
+
+
+
+
+
+	<meta charset="utf-8">
+
+	
+
+	<!-- jQuery -->
+
+
+  
+
+    <!-- Linkk que possui as cidades e estados -->
+
+    <script src="https://pastebin.com/raw/dWXFb4zm" type="text/javascript"></script>
+
+
+
+
+
+
+	<script>		
+
+		function obterPrazoWs()
+		{
+			/*
+			console.log($("#estado1").val());
+			console.log($("#cidade1").val());
+			console.log($("#estado").val());
+			console.log($("#cidade").val());
+			console.log($("#cadastro").val());
+			*/			
+
+			$.ajax(
+
+				{
+
+					url:"parametros.php",
+
+					data:{
+
+						uf_destino:$("#estado1").val(),
+
+						cidade_destino:$("#cidade1").val(),
+
+						uf_origem:$("#estado").val(),
+
+						cidade_origem:$("#cidade").val(),
+
+						modal:$("#cadastro").val()
+
+					},
+
+					type:"POST",
+
+					dataType:"json",
+
+					success:function(data){
+
+						//DEBUG
+
+						//console.log(data);
+
+						//console.log(data.PRAZOS);
+
+						//END_DEBUG
+
+						
+
+
+						$("#embarque").val(data.PRAZOS[6].OBSTAB["0"]);
+
+
+
+								
+
+					},
+					error:function(result){
+						//console.log(result);
+					}
+
+					}
+
+			);
+
+							if ($("#prazo").val == "SOB CONSULTA"){
+							alert("Trecho atendido mediante cotação.");
+					}
+				
+
+		}
+
+	</script>
+	
+  </head>
+
+<body>
+
+  <div class="l-col" id="mediaoptions" style="padding-right: 4px;padding-left: 10px;margin-left: 0px;">
+
+    <!--Título-->
+
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">         
+
+        <h1>Cidades Atendidas</h1>
+
+    </div>
+
+
+
+
+
+    
+
+    <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+
+      <script type="text/javascript">
+
+        window.onload = function() {
+
+
+          
+
+          new dgCidadesEstados({
+
+            estado: document.getElementById('estado1'),
+
+            cidade: document.getElementById('cidade1'),
+
+            estadoVal: '<%=Request("estado") %>',
+
+            cidadeVal: '<%=Request("cidade") %>'
+
+          });
+
+          
+
+        }
+
+      </script>
+
+
+
+
+
+
+<label> 
+
+  <p style="margin-bottom: 7px;">UF</p> <!--CAMPO ESTADOS DESTINO-->
+
+              <select id="estado1" name="estado1"><option value="AC">AC</option><option value="AL">AL</option><option value="AM">AM</option><option value="AP">AP</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option><option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option><option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option><option value="RR">RR</option><option value="RS">RS</option><option value="SC">SC</option><option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option></select>
+
+</label>
+
+
+
+<label style="margin-bottom: 20px;margin-right: 15px;">
+
+<p style="margin-bottom: 7px;">Destino</p> <!--CAMPO CIDADES DESTINO-->
+
+          <select style="width: 200px;" id="cidade1" name="cidade1"><option value="">Selecione uma cidade</option><option value="ACRELANDIA">ACRELANDIA</option><option value="ASSIS BRASIL">ASSIS BRASIL</option><option value="BRASILEIA">BRASILEIA</option><option value="BUJARI">BUJARI</option><option value="CAPIXABA">CAPIXABA</option><option value="CRUZEIRO DO SUL">CRUZEIRO DO SUL</option><option value="EPITACIOLANDIA">EPITACIOLANDIA</option><option value="FEIJO">FEIJO</option><option value="JORDAO">JORDAO</option><option value="MANCIO LIMA">MANCIO LIMA</option><option value="MANOEL URBANO">MANOEL URBANO</option><option value="MARECHAL THAUMATURGO">MARECHAL THAUMATURGO</option><option value="PLACIDO DE CASTRO">PLACIDO DE CASTRO</option><option value="PORTO ACRE">PORTO ACRE</option><option value="PORTO WALTER">PORTO WALTER</option><option value="RIO BRANCO">RIO BRANCO</option><option value="RODRIGUES ALVES">RODRIGUES ALVES</option><option value="SANTA ROSA DO PURUS">SANTA ROSA DO PURUS</option><option value="SENA MADUREIRA">SENA MADUREIRA</option><option value="SENADOR GUIOMARD">SENADOR GUIOMARD</option><option value="TARAUACA">TARAUACA</option><option value="XAPURI">XAPURI</option></select>  
+
+</label> 
+
+
+
+
+<label>
+
+<p style="margin-bottom: 7px;">Modal</p> <!--CAMPO DO COMBOBOX-->
+
+      <select id="cadastro" name="cadastro">
+
+        <option value="T13">Rodoviário</option>
+
+        <option value="T04">Aéreo</option>
+
+      </select>
+
+</label><label style="
+    margin-left: 15px;
+">
+
+ <!--BOTAO DE CONSULTA-->	
+
+			<button id="btn" type="submit" onclick="obterPrazoWs();" class="btn-btn-theme" name="cdi" style="margin-left: 15px">Atualizar</button>
+			      <img id="loading" src="http://i.imgur.com/SpJvla7.gif" style="margin-left: 15px; display: none;">
+
+
+</label>
+
+
+<label>
+
+ <!--GIF CARREGAMENTO-->	
+
+ <img id="blanket">
+ <img id="aguarde" style="display: none;">
+
+</label>        
+
+</div>
+
+<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+
+    
+
+    
+
+<label>
+
+<p style="margin-bottom: 7px;">Status</p>
+
+<input disabled="" type="text" id="embarque" value="" style="text-align:center;width: 246px; cursor:auto">
+
+</label>
+
+
+
+
+
+<!--ALTERAÇÃO DAS TEXTBOXS DE PRAZO, DIAS DE EMBARQUE E MODALIDADE-->
+
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+
+<script id="rendered-js">
+
+	/*
+
+	var modal = ["Rodoexpress", "Aéreo Convencional", "Aéreo Expresso","Todos"];
+
+	var prazo = ["3", "4", "1"];
+
+	var embarque = ["Terça e Sexta", "Todo dia", "Próximo voo"];
+
+	*/
+
+  
+  /*
+	document.getElementById("btn").addEventListener(
+
+		"click",
+
+		function(){	
+
+			obterPrazoWs();
+
+
+			//document.getElementById("modal").value = modal[this.selectedIndex];
+
+			//document.getElementById("prazo").value = prazo[this.selectedIndex];
+
+			//document.getElementById("embarque").value = embarque[this.selectedIndex];
+			
+
+		}
+
+	);
+	*/
+
+</script>
+
+    
+
+</div>
+
+
+
+
+
+<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center" style="
+    margin-top: 20px;
+">
+
+
+
+    <label style="
+    border: 2px solid transparent;
+    color: #333333;
+    background-color: transparent;
+    padding: 5px 5px;
+    border-color: #1b1e8ba6;
+    color: #000000;
+    border-radius: 7px;
+    margin-right: 5px;
+">
+
+
+
+<div class="sppb-addon-content"><a target="_blank" href="http://globalcargo.comunidadecomunicacao.com.br/login" id="btn-1499661653288" class="sppb-btn  sppb-btn-custom sppb-btn-lg sppb-btn-rounded sppb-btn-outline" style="
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-right-width: 0px;
+"><i class="fa fa-dropbox"></i> Faça uma cotação</a></div>
+
+</label>
+
+    
+
+    
+
+<label style="
+    border: 2px solid transparent;
+    color: #333333;
+    background-color: transparent;
+    padding: 5px 5px;
+    border-color: #1b1e8ba6;
+    color: #000000;
+    border-radius: 7px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+">
+
+
+
+<div class="sppb-addon-content"><a target="_blank" href="http://189.8.3.146:8090/" id="btn-1499661653288" class="sppb-btn  sppb-btn-custom sppb-btn-lg sppb-btn-rounded sppb-btn-outline" style="
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-right-width: 0px;
+"><i class="fa fa-truck"></i> Agende sua coleta</a></div>
+
+</label>
+
+
+
+
+<!--ALTERAÇÃO DAS TEXTBOXS DE PRAZO, DIAS DE EMBARQUE E MODALIDADE-->
+
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+
+<script id="rendered-js">
+
+	/*
+
+	var modal = ["Rodoexpress", "Aéreo Convencional", "Aéreo Expresso","Todos"];
+
+	var prazo = ["3", "4", "1"];
+
+	var embarque = ["Terça e Sexta", "Todo dia", "Próximo voo"];
+
+	*/
+
+  
+  /*
+	document.getElementById("btn").addEventListener(
+
+		"click",
+
+		function(){	
+
+			obterPrazoWs();
+
+
+			//document.getElementById("modal").value = modal[this.selectedIndex];
+
+			//document.getElementById("prazo").value = prazo[this.selectedIndex];
+
+			//document.getElementById("embarque").value = embarque[this.selectedIndex];
+			
+
+		}
+
+	);
+	*/
+
+</script>
+
+    
+
+</div></div><style>.nXeSS11xkco1PgRvWafV { color:#00acdb !important; } 
+.nXeSS11xkco1PgRvWafV.ba-outline { outline-color:#00acdb } 
+.nXeSS11xkco1PgRvWafV.giL7MTM3GjqkMQrzh4R:hover, .nXeSS11xkco1PgRvWafV.giL7MTM3GjqkMQrzh4R.active { color:#0098c2 !important; }
+.cVOUEwtlLg13crWW { background-color:#00acdb !important; }
+.cVOUEwtlLg13crWW.giL7MTM3GjqkMQrzh4R:hover, .cVOUEwtlLg13crWW.giL7MTM3GjqkMQrzh4R.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.FMaUJCDMCuZUESNi { background:#f6a800 !important; color:white !important; }
+.FMaUJCDMCuZUESNi.giL7MTM3GjqkMQrzh4R:hover, .FMaUJCDMCuZUESNi.giL7MTM3GjqkMQrzh4R.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.giL7MTM3GjqkMQrzh4R:hover, .ba-color-secondary.giL7MTM3GjqkMQrzh4R.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.giL7MTM3GjqkMQrzh4R:hover, .ba-color-tertiary.giL7MTM3GjqkMQrzh4R.active { color:#ab7500 !important }
+.R30xBzVf0yP52Kt7Y { background:#f6a800 !important }
+.ba-bg-tertiary.giL7MTM3GjqkMQrzh4R:hover, .ba-bg-tertiary.giL7MTM3GjqkMQrzh4R.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style>
+
+<style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.Q1NFflFn6s2neJn { color:#00acdb !important; } 
+.Q1NFflFn6s2neJn.ba-outline { outline-color:#00acdb } 
+.Q1NFflFn6s2neJn.q3zeTaDZ1pXt:hover, .Q1NFflFn6s2neJn.q3zeTaDZ1pXt.active { color:#0098c2 !important; }
+.GjbXPkFt3zCAW8i { background-color:#00acdb !important; }
+.GjbXPkFt3zCAW8i.q3zeTaDZ1pXt:hover, .GjbXPkFt3zCAW8i.q3zeTaDZ1pXt.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.YmtLPyY4elhSVqKEZ0c { background:#f6a800 !important; color:white !important; }
+.YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt:hover, .YmtLPyY4elhSVqKEZ0c.q3zeTaDZ1pXt.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.q3zeTaDZ1pXt:hover, .ba-color-secondary.q3zeTaDZ1pXt.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.q3zeTaDZ1pXt:hover, .ba-color-tertiary.q3zeTaDZ1pXt.active { color:#ab7500 !important }
+.Q1Ogyzb4Zqot { background:#f6a800 !important }
+.ba-bg-tertiary.q3zeTaDZ1pXt:hover, .ba-bg-tertiary.q3zeTaDZ1pXt.active { background:#ab7500 !important }</style><style>.nXeSS11xkco1PgRvWafV { color:#00acdb !important; } 
+.nXeSS11xkco1PgRvWafV.ba-outline { outline-color:#00acdb } 
+.nXeSS11xkco1PgRvWafV.giL7MTM3GjqkMQrzh4R:hover, .nXeSS11xkco1PgRvWafV.giL7MTM3GjqkMQrzh4R.active { color:#0098c2 !important; }
+.cVOUEwtlLg13crWW { background-color:#00acdb !important; }
+.cVOUEwtlLg13crWW.giL7MTM3GjqkMQrzh4R:hover, .cVOUEwtlLg13crWW.giL7MTM3GjqkMQrzh4R.active { background:#0098c2 !important; }
+.ba-border-primary { border-color:#0098c2 !important }
+.FMaUJCDMCuZUESNi { background:#f6a800 !important; color:white !important; }
+.FMaUJCDMCuZUESNi.giL7MTM3GjqkMQrzh4R:hover, .FMaUJCDMCuZUESNi.giL7MTM3GjqkMQrzh4R.active { background:#ab7500 !important; }
+.ba-color-secondary { color:#f6a800 !important;  }
+.ba-color-secondary.giL7MTM3GjqkMQrzh4R:hover, .ba-color-secondary.giL7MTM3GjqkMQrzh4R.active { color:#ab7500 !important; }
+.ba-color-tertiary { color:#f6a800 !important }
+.ba-color-tertiary.giL7MTM3GjqkMQrzh4R:hover, .ba-color-tertiary.giL7MTM3GjqkMQrzh4R.active { color:#ab7500 !important }
+.R30xBzVf0yP52Kt7Y { background:#f6a800 !important }
+.ba-bg-tertiary.giL7MTM3GjqkMQrzh4R:hover, .ba-bg-tertiary.giL7MTM3GjqkMQrzh4R.active { background:#ab7500 !important }</style></body></html>
